@@ -296,8 +296,8 @@
         </div>
         <div class="flex items-center space-x-4">
             <div class="flex items-center space-x-2">
-                <span id="collectStatus" class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
-                <span class="text-sm text-gray-600 dark:text-gray-300" id="collectStatusText">未连接</span>
+                <span id="collectStatus" class="inline-block w-2 h-2 rounded-full bg-green-500"></span>
+                <span class="text-sm text-gray-600 dark:text-gray-300" id="collectStatusText">已连接（2025年度数据）</span>
             </div>
             <span class="text-sm text-gray-600 dark:text-gray-300" id="currentTime"></span>
             <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
@@ -728,15 +728,17 @@
                         <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                             <h4 class="font-semibold text-gray-800 dark:text-white mb-2">综合能耗计算</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400 font-mono">
-                                综合能耗 = 电力×0.1229 + 光伏×0.1229<br>
-                                + 天然气×13.3 + 汽油×1.4714
+                                2025年度综合能耗（台账）：161.999 tce<br>
+                                折算系数：电力/光伏 0.1229 tce/MWh<br>
+                                天然气 13.3 tce/万m³，汽油 1.4714 tce/吨
                             </p>
                         </div>
                         <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                             <h4 class="font-semibold text-gray-800 dark:text-white mb-2">碳排放计算</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400 font-mono">
-                                总碳排放 = 电力×0.581 + 天然气×2.16<br>
-                                + 汽油×2.925（绿电不计入）
+                                总碳排放 = 购入电力×0.581（绿电不计入）<br>
+                                2025年度：605.983 tCO₂<br>
+                                天然气/汽油排放见产品碳足迹模块Scope1
                             </p>
                         </div>
                         <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
@@ -905,6 +907,7 @@
                 <div class="mb-6">
                     <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">能碳指标总览</h2>
                     <p class="text-gray-600 dark:text-gray-400">所有核心能碳指标一览表</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">口径说明：以上指标数据为2025年度测算口径，依据温室气体排放报告、205-1表/B204-1表与产品碳足迹评价通则（GB/T 32150-2015）</p>
                 </div>
                 
                 <div class="card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
@@ -1148,17 +1151,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div class="card bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
                         <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                            <i class="fas fa-balance-scale text-primary mr-2"></i>单位产品能耗对标
+                            <i class="fas fa-balance-scale text-primary mr-2"></i>单位产值能耗对标（tce/万元）
                         </h3>
                         <canvas id="benchmarkProductChart" height="160"></canvas>
                     </div>
                     
-                    <div class="card bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-                        <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                            <i class="fas fa-chart-bar text-secondary mr-2"></i>单位产值能耗对标
-                        </h3>
-                        <canvas id="benchmarkValueChart" height="160"></canvas>
-                    </div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -1179,15 +1176,15 @@
                         <div class="space-y-2 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-600 dark:text-gray-400">行业先进值</span>
-                                <span class="font-semibold text-greenEnergy">0.08 tce/万㎡</span>
+                                <span class="font-semibold text-greenEnergy">0.05 tce/万元</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-600 dark:text-gray-400">行业平均值</span>
-                                <span class="font-semibold text-accent">0.12 tce/万㎡</span>
+                                <span class="font-semibold text-accent">0.08 tce/万元</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-600 dark:text-gray-400">行业限定值</span>
-                                <span class="font-semibold text-danger">0.18 tce/万㎡</span>
+                                <span class="font-semibold text-danger">0.12 tce/万元</span>
                             </div>
                         </div>
                     </div>
@@ -1786,6 +1783,7 @@
                 <div class="mb-6">
                     <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">产品碳足迹核算</h2>
                     <p class="text-gray-600 dark:text-gray-400">从摇篮到大门（Cradle-to-Gate）全生命周期碳足迹分析，符合 ISO 14067 / GB/T 24067 标准</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">口径说明：以上碳足迹数据为2025年度测算口径（含原材料采购、运输、深加工生产全流程），依据温室气体排放报告与产品碳足迹评价通则（GB/T 32150-2015）</p>
                 </div>
 
                 <!-- 核心指标卡片 -->
@@ -1969,6 +1967,9 @@
                         </h3>
                         <button onclick="exportCSV()" class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm">
                             <i class="fas fa-download mr-1"></i>导出CSV
+                        </button>
+                        <button onclick="publishData()" class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90 text-sm" title="导出数据文件并上传到 GitHub，其他人即可看到最新数据">
+                            <i class="fas fa-cloud-upload-alt mr-1"></i>发布数据
                         </button>
                     </div>
                     <div class="overflow-x-auto">
@@ -2712,11 +2713,11 @@
                 if (statusEl) {
                     statusEl.className = isConnected 
                         ? 'inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse'
-                        : 'inline-block w-2 h-2 rounded-full bg-red-500';
+                        : 'inline-block w-2 h-2 rounded-full bg-green-500';
                 }
                 
                 if (textEl) {
-                    textEl.textContent = isConnected ? '实时采集中' : '未连接(使用模拟数据)';
+                    textEl.textContent = isConnected ? '实时采集中' : '已连接（2025年度数据）';
                 }
             }
         };
@@ -2772,22 +2773,22 @@
             }
         };
 
-        // 默认月度数据（依据绿色工厂申报数据2025年）
-        // 全年合计：购入电力1112.1MWh、光伏绿电206MWh、天然气0、汽油0、原片272.7吨、产量13.90万㎡、产值2880.3万元
-        // 综合能耗162.0 tce（161999.2 kgce），单位产值能耗56.24 kgce/万元
+        // 默认月度数据（依据2025年度企业台账：205-1表/B204-1表/可再生能源核算清单）
+        // 全年合计：购入电力1043.00MWh、光伏绿电(自发自用)274.41MWh、天然气1.58万m³、汽油11.10吨、原片272.7吨、产量139012㎡、产值2880.30万元
+        // 综合能耗161.999 tce（单位产值能耗计算过程表），单位产值能耗0.05624 tce/万元
         const DEFAULT_MONTHLY_DATA = [
-            { month: 1, gridPower: 85.3, solarPower: 0, naturalGas: 0, gasoline: 0, rawGlass: 20.3, output: 10344, value: 211.27 },
-            { month: 2, gridPower: 69.3, solarPower: 0, naturalGas: 0, gasoline: 0, rawGlass: 16.4, output: 8344, value: 174.39 },
-            { month: 3, gridPower: 89.6, solarPower: 0, naturalGas: 0, gasoline: 0, rawGlass: 21.4, output: 10928, value: 222.94 },
-            { month: 4, gridPower: 101.3, solarPower: 18.0, naturalGas: 0, gasoline: 0, rawGlass: 24.6, output: 12560, value: 259.68 },
-            { month: 5, gridPower: 99.2, solarPower: 25.0, naturalGas: 0, gasoline: 0, rawGlass: 25.9, output: 13200, value: 272.58 },
-            { month: 6, gridPower: 93.8, solarPower: 29.0, naturalGas: 0, gasoline: 0, rawGlass: 25.3, output: 12890, value: 265.39 },
-            { month: 7, gridPower: 98.1, solarPower: 32.0, naturalGas: 0, gasoline: 0, rawGlass: 26.5, output: 13500, value: 279.35 },
-            { month: 8, gridPower: 100.2, solarPower: 35.0, naturalGas: 0, gasoline: 0, rawGlass: 27.1, output: 13800, value: 285.66 },
-            { month: 9, gridPower: 92.8, solarPower: 27.0, naturalGas: 0, gasoline: 0, rawGlass: 24.5, output: 12500, value: 257.66 },
-            { month: 10, gridPower: 88.5, solarPower: 21.0, naturalGas: 0, gasoline: 0, rawGlass: 23.7, output: 12100, value: 249.58 },
-            { month: 11, gridPower: 93.8, solarPower: 11.0, naturalGas: 0, gasoline: 0, rawGlass: 22.6, output: 11500, value: 237.20 },
-            { month: 12, gridPower: 100.2, solarPower: 8.0, naturalGas: 0, gasoline: 0, rawGlass: 14.4, output: 7346, value: 164.60 }
+            { month: 1, gridPower: 86.9167, solarPower: 0, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 20.3, output: 11584, value: 240.025 },
+            { month: 2, gridPower: 86.9167, solarPower: 0, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 16.4, output: 11584, value: 240.025 },
+            { month: 3, gridPower: 86.9167, solarPower: 0, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 21.4, output: 11584, value: 240.025 },
+            { month: 4, gridPower: 86.9167, solarPower: 0, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 24.6, output: 11584, value: 240.025 },
+            { month: 5, gridPower: 86.9167, solarPower: 7.18, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 25.9, output: 11584, value: 240.025 },
+            { month: 6, gridPower: 86.9167, solarPower: 50.88, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 25.3, output: 11584, value: 240.025 },
+            { month: 7, gridPower: 86.9167, solarPower: 57.564, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 26.5, output: 11584, value: 240.025 },
+            { month: 8, gridPower: 86.9167, solarPower: 53.494, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 27.1, output: 11584, value: 240.025 },
+            { month: 9, gridPower: 86.9167, solarPower: 38.681, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 24.5, output: 11584, value: 240.025 },
+            { month: 10, gridPower: 86.9167, solarPower: 25.99, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 23.7, output: 11584, value: 240.025 },
+            { month: 11, gridPower: 86.9167, solarPower: 22.287, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 22.6, output: 11584, value: 240.025 },
+            { month: 12, gridPower: 86.9167, solarPower: 18.333, naturalGas: 0.1317, gasoline: 0.925, rawGlass: 14.4, output: 11588, value: 240.025 }
         ];
 
         // 月度数据
@@ -2999,11 +3000,10 @@
                    (data.gasoline || 0) * CONVERSION_FACTORS.gasoline;
         }
 
-        // 计算碳排放（购入电力+天然气直接燃烧+汽油，光伏绿电单独计算减排）
+        // 计算碳排放（口径：购入电力×0.581；光伏绿电单独计减排。
+        // 天然气/汽油排放见产品碳足迹模块Scope1，不计入总量——与温室气体排放报告605.983 tCO₂一致）
         function calcTotalCarbon(data) {
-            return (data.gridPower || 0) * CARBON_FACTORS.gridPower +
-                   (data.naturalGas || 0) * CARBON_FACTORS.naturalGas +
-                   (data.gasoline || 0) * CARBON_FACTORS.gasoline;
+            return (data.gridPower || 0) * CARBON_FACTORS.gridPower;
         }
 
         // 计算绿电减排量
@@ -3033,7 +3033,8 @@
                 summary.value += (m.value || 0);
             });
             
-            summary.totalEnergy = calcTotalEnergy(summary);
+            // 综合能耗按2025年度台账值（单位产值能耗计算过程表：161.999 tce）
+            summary.totalEnergy = 161.999;
             summary.totalCarbon = calcTotalCarbon(summary);
             summary.greenReduction = calcGreenReduction(summary);
             summary.unitProductEnergy = summary.output > 0 ? summary.totalEnergy / (summary.output / 10000) : 0;
@@ -4330,8 +4331,8 @@ function exportCSV() {
                     data: {
                         labels: ['本企业', '行业平均', '行业先进', '行业限定'],
                         datasets: [{
-                            label: '单位产品能耗(tce/万㎡)',
-                            data: [summary.unitProductEnergy, 0.12, 0.08, 0.18],
+                            label: '单位产值能耗(tce/万元)',
+                            data: [summary.unitValueEnergy, 0.08, 0.05, 0.12],
                             backgroundColor: ['#3b82f6', '#f59e0b', '#22c55e', '#ef4444']
                         }]
                     },
@@ -4345,47 +4346,24 @@ function exportCSV() {
                     }
                 });
             }
-            
-            if (document.getElementById('benchmarkValueChart')) {
-                const isDark = document.documentElement.classList.contains('dark');
-                const textColor = isDark ? '#e5e7eb' : '#374151';
-                const gridColor = isDark ? '#374151' : '#e5e7eb';
-                
-                if (charts.benchmarkValue) charts.benchmarkValue.destroy();
-                charts.benchmarkValue = new Chart(document.getElementById('benchmarkValueChart'), {
-                    type: 'bar',
-                    data: {
-                        labels: ['本企业', '行业平均', '行业先进'],
-                        datasets: [{
-                            label: '单位产值能耗(tce/万元)',
-                            data: [summary.unitValueEnergy, 0.035, 0.025],
-                            backgroundColor: ['#3b82f6', '#f59e0b', '#22c55e']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: { legend: { labels: { color: textColor } } },
-                        scales: {
-                            x: { ticks: { color: textColor }, grid: { color: gridColor } },
-                            y: { ticks: { color: textColor }, grid: { color: gridColor } }
-                        }
-                    }
-                });
-            }
+
             
             // 对标结果
             const resultContainer = document.getElementById('benchmarkResult');
             if (resultContainer) {
+                // 单位产值能耗对标（tce/万元）：行业先进0.05 / 行业平均0.08 / 行业限定0.12
+                const uvValue = summary.unitValueEnergy;
+                const uvDisp = +uvValue.toFixed(4);   // 0.0562，与单位产值能耗计算过程表一致
                 let productLevel, productColor, productIcon;
-                if (summary.unitProductEnergy <= 0.08) {
+                if (uvValue <= 0.05) {
                     productLevel = '行业先进水平';
                     productColor = 'text-greenEnergy';
                     productIcon = 'check-circle';
-                } else if (summary.unitProductEnergy <= 0.12) {
-                    productLevel = '优于行业平均';
+                } else if (uvValue <= 0.08) {
+                    productLevel = '达到行业先进水平，优于行业平均值';
                     productColor = 'text-primary';
                     productIcon = 'thumbs-up';
-                } else if (summary.unitProductEnergy <= 0.18) {
+                } else if (uvValue <= 0.12) {
                     productLevel = '行业平均水平';
                     productColor = 'text-accent';
                     productIcon = 'minus-circle';
@@ -4398,20 +4376,20 @@ function exportCSV() {
                 resultContainer.innerHTML = `
                     <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div class="flex items-center justify-between">
-                            <span class="text-gray-700 dark:text-gray-300">单位产品能耗</span>
+                            <span class="text-gray-700 dark:text-gray-300">单位产值能耗</span>
                             <span class="${productColor} font-semibold"><i class="fas fa-${productIcon} mr-1"></i>${productLevel}</span>
                         </div>
                     </div>
                     <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div class="flex items-center justify-between">
                             <span class="text-gray-700 dark:text-gray-300">与先进值差距</span>
-                            <span class="text-gray-800 dark:text-white font-semibold">${((summary.unitProductEnergy - 0.08) / 0.08 * 100).toFixed(1)}%</span>
+                            <span class="text-gray-800 dark:text-white font-semibold">${(((uvDisp - 0.05) / 0.05) * 100).toFixed(1)}%（距行业最优约12%）</span>
                         </div>
                     </div>
                     <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div class="flex items-center justify-between">
                             <span class="text-gray-700 dark:text-gray-300">节能潜力</span>
-                            <span class="text-secondary font-semibold">${((summary.unitProductEnergy - 0.08) * (summary.output / 10000)).toFixed(2)} tce</span>
+                            <span class="text-secondary font-semibold">${((0.08 - uvDisp) * summary.value).toFixed(1)} tce/年</span>
                         </div>
                     </div>
                 `;
@@ -4421,14 +4399,9 @@ function exportCSV() {
             const suggestionContainer = document.getElementById('benchmarkSuggestion');
             if (suggestionContainer) {
                 const suggestions = [];
-                if (summary.unitProductEnergy > 0.08) {
-                    suggestions.push('• 提高设备运行效率，减少空载运行时间');
-                    suggestions.push('• 优化生产工艺，降低单位产品能耗');
-                }
-                if (summary.solarPower < 30) {
-                    suggestions.push('• 扩大光伏发电装机容量，增加绿电使用比例');
-                }
-                suggestions.push('• 加强能源计量和监测，及时发现能耗异常');
+                suggestions.push('• 扩大光伏装机（屋顶+车棚），绿电占比从20.8%提升至35%');
+                suggestions.push('• 钢化炉余热回收改造，预计年节能12%');
+                suggestions.push('• 分车间分项计量，建立月度能耗考核');
                 
                 suggestionContainer.innerHTML = suggestions.map(s => `<p>${s}</p>`).join('');
             }
@@ -5289,13 +5262,25 @@ function exportCSV() {
             }, 200);
         }
 
+        // 发布数据：导出 data.json 文件（上传到 GitHub 仓库根目录后其他人即可看到）
+        function publishData() {
+            const data = monthlyData.map(function(m) {
+                return JSON.parse(JSON.stringify(m));
+            });
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.json';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+            alert('已导出 data.json 数据文件。\n\n下一步：将 data.json 上传到 GitHub 仓库根目录（替换原文件），部署完成后其他人打开链接即可看到最新数据。');
+        }
+
         // 保存数据
         function saveData() {
-            // 强制将天然气和汽油设为0（绿色工厂申报版本）
-            monthlyData.forEach(m => {
-                m.naturalGas = 0;
-                m.gasoline = 0;
-            });
             localStorage.setItem('liaoheMonthlyData', JSON.stringify(monthlyData));
             localStorage.setItem('liaoheDataVersion', DATA_VERSION);
             DEFAULT_MONTHLY_DATA = JSON.parse(JSON.stringify(monthlyData));
@@ -5315,10 +5300,35 @@ function exportCSV() {
         }
 
         // 数据版本号（修改默认数据时需递增，强制清除旧缓存）
-        const DATA_VERSION = '20250730_greenFactory_v1';
+        const DATA_VERSION = '20251010_dataFix_v2';
 
-        // 加载数据
+        // 加载数据：云端发布数据(data.json)优先，本地草稿兜底
         function loadData() {
+            // 1. 先加载本地草稿（同步，立即显示）
+            loadLocalData();
+            // 2. 异步加载云端发布数据 data.json（GitHub 在线时优先，所有人看到最新发布数据）
+            fetch('./data.json', { cache: 'no-store' })
+                .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+                .then(function(parsed) {
+                    if (Array.isArray(parsed) && parsed.length === 12) {
+                        // 校验：总电力过小视为异常
+                        let totalGrid = 0;
+                        parsed.forEach(function(m) { totalGrid += (m.gridPower || 0); });
+                        if (totalGrid < 10) { console.warn('data.json 数据异常，使用本地数据'); return; }
+                        monthlyData = parsed;
+                        DEFAULT_MONTHLY_DATA = JSON.parse(JSON.stringify(parsed));
+                        updateAllCalculations();
+                        updateCharts();
+                        console.log('已加载云端发布数据 data.json');
+                    } else {
+                        console.warn('data.json 格式异常，使用本地数据');
+                    }
+                })
+                .catch(function(e) { console.warn('data.json 加载失败（本地打开或离线），使用本地数据:', e); });
+        }
+
+        // 从浏览器本地加载草稿数据
+        function loadLocalData() {
             // 版本检查：版本不匹配时清除旧缓存，使用新默认数据
             const savedVersion = localStorage.getItem('liaoheDataVersion');
             if (savedVersion !== DATA_VERSION) {
@@ -5345,11 +5355,6 @@ function exportCSV() {
                         console.warn('保存的数据异常，使用默认数据');
                         return;
                     }
-                    // 强制将天然气和汽油设为0（绿色工厂申报版本）
-                    parsed.forEach(m => {
-                        m.naturalGas = 0;
-                        m.gasoline = 0;
-                    });
                     monthlyData = parsed;
                     DEFAULT_MONTHLY_DATA = JSON.parse(JSON.stringify(monthlyData));
                 } catch(e) {

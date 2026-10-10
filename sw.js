@@ -1,5 +1,5 @@
-/* 辽河能碳管理系统 - Service Worker v1.0 */
-const CACHE_NAME = 'liaohe-energy-carbon-v1';
+/* 辽河能碳管理系统 - Service Worker v3.0（2025年度数据修正版） */
+const CACHE_NAME = 'liaohe-energy-carbon-v3';
 
 // 预缓存核心资源（相对路径，与发布产物根目录一致）
 const PRECACHE_URLS = [
@@ -53,6 +53,22 @@ self.addEventListener('fetch', event => {
           return response;
         })
         .catch(() => caches.match(request).then(match => match || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  // 数据文件 data.json：网络优先（保证数据实时更新），离线时回退缓存
+  if (url.pathname.endsWith('data.json')) {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          if (response && response.status === 200) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
     );
     return;
   }

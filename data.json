@@ -1,0 +1,122 @@
+[
+  {
+    "month": 1,
+    "gridPower": 86.9167,
+    "solarPower": 0,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 20.3,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 2,
+    "gridPower": 86.9167,
+    "solarPower": 0,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 16.4,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 3,
+    "gridPower": 86.9167,
+    "solarPower": 0,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 21.4,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 4,
+    "gridPower": 86.9167,
+    "solarPower": 0,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 24.6,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 5,
+    "gridPower": 86.9167,
+    "solarPower": 7.18,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 25.9,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 6,
+    "gridPower": 86.9167,
+    "solarPower": 50.88,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 25.3,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 7,
+    "gridPower": 86.9167,
+    "solarPower": 57.564,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 26.5,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 8,
+    "gridPower": 86.9167,
+    "solarPower": 53.494,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 27.1,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 9,
+    "gridPower": 86.9167,
+    "solarPower": 38.681,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 24.5,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 10,
+    "gridPower": 86.9167,
+    "solarPower": 25.99,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 23.7,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 11,
+    "gridPower": 86.9167,
+    "solarPower": 22.287,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 22.6,
+    "output": 11584,
+    "value": 240.025
+  },
+  {
+    "month": 12,
+    "gridPower": 86.9167,
+    "solarPower": 18.333,
+    "naturalGas": 0.1317,
+    "gasoline": 0.925,
+    "rawGlass": 14.4,
+    "output": 11588,
+    "value": 240.025
+  }
+]
