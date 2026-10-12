@@ -1,5 +1,5 @@
 ﻿/* 辽河能碳管理系统 - Service Worker v3.0（2025年度数据修正版） */
-const CACHE_NAME = 'liaohe-energy-carbon-v4';
+const CACHE_NAME = 'liaohe-energy-carbon-v5';
 
 // 预缓存核心资源（相对路径，与发布产物根目录一致）
 const PRECACHE_URLS = [

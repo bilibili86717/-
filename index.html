@@ -3182,19 +3182,8 @@ try { updateCharts(); } catch(e) { console.warn('图表更新失败:', e); }
             // 11.0：更新首页预警条
             const bar = document.getElementById('dashboardAlertBar');
             const txt = document.getElementById('dashboardAlertText');
-            if (bar && txt) {
-                if (red > 0) {
-                    bar.classList.remove('hidden');
-                    bar.className = 'mb-4 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800';
-                    txt.innerHTML = '发现 <strong>' + red + '</strong> 项红色告警、<strong>' + yellow + '</strong> 项黄色预警，请及时处理';
-                } else if (yellow > 0) {
-                    bar.classList.remove('hidden');
-                    bar.className = 'mb-4 p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800';
-                    txt.innerHTML = '发现 <strong>' + yellow + '</strong> 项黄色预警，请关注';
-                } else {
-                    bar.classList.add('hidden');
-                }
-            }
+            // 申报展示模式：首页告警横幅默认隐藏（预警模块明细与统计仍完整保留）
+            if (bar) bar.classList.add('hidden');
         }
 
         // ======== 11.0新增：策略推荐 ========
